@@ -1,6 +1,8 @@
+require('dotenv').config(); // Подключаем dotenv в начале
+
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = '7574646934:AAH2166r2mN_-NopOO7oblt4u6GAZJ24t9M'; // 🔐 Замените на ваш токен
+const token = process.env.TELEGRAM_BOT_TOKEN; // Берём токен из .env
 const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
